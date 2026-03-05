@@ -28,12 +28,12 @@ struct SignUpView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "person.badge.plus")
                         .font(.system(size: 50))
-                        .foregroundColor(Theme.primaryMaroon)
+                        .foregroundColor(Theme.primaryColor)
                     
                     Text("Create Account")
                         .font(.title)
                         .bold()
-                        .foregroundColor(Theme.primaryMaroon)
+                        .foregroundColor(Theme.primaryColor)
                     
                     Text("Sign up to get started")
                         .foregroundColor(.gray)
@@ -50,7 +50,7 @@ struct SignUpView: View {
                         
                         HStack {
                             Image(systemName: "person.fill")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                             TextField("Enter your full name", text: $fullName)
                                 .autocorrectionDisabled()
                         }
@@ -68,7 +68,7 @@ struct SignUpView: View {
                         
                         HStack {
                             Image(systemName: "envelope.fill")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                             TextField("Enter your email", text: $email)
                                 #if os(iOS)
                                 .keyboardType(.emailAddress)
@@ -90,7 +90,7 @@ struct SignUpView: View {
                         
                         HStack {
                             Image(systemName: "lock.fill")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                             SecureField("Enter password (min 6 characters)", text: $password)
                         }
                         .padding()
@@ -107,7 +107,7 @@ struct SignUpView: View {
                         
                         HStack {
                             Image(systemName: "lock.fill")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                             SecureField("Confirm your password", text: $confirmPassword)
                         }
                         .padding()
@@ -153,14 +153,14 @@ struct SignUpView: View {
                             .tint(.white)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Theme.primaryMaroon)
+                            .background(Theme.primaryColor)
                             .cornerRadius(12)
                     } else {
                         Text("Sign Up")
                             .bold()
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(isFormValid ? Theme.primaryMaroon : Color.gray)
+                            .background(isFormValid ? Theme.primaryColor : Color.gray)
                             .foregroundColor(.white)
                             .cornerRadius(12)
                     }
@@ -174,7 +174,7 @@ struct SignUpView: View {
                     Button("Sign In") {
                         dismiss()
                     }
-                    .foregroundColor(Theme.primaryMaroon)
+                    .foregroundColor(Theme.primaryColor)
                     .bold()
                 }
                 .font(.subheadline)

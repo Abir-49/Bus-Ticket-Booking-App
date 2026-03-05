@@ -21,12 +21,12 @@ struct SignInView: View {
                     VStack(spacing: 12) {
                         Image(systemName: "bus.fill")
                             .font(.system(size: 60))
-                            .foregroundColor(Theme.primaryMaroon)
+                            .foregroundColor(Theme.primaryColor)
                         
                         Text("Bus Ticket Booking")
                             .font(.title)
                             .bold()
-                            .foregroundColor(Theme.primaryMaroon)
+                            .foregroundColor(Theme.primaryColor)
                         
                         Text("Sign in to continue")
                             .foregroundColor(.gray)
@@ -43,7 +43,7 @@ struct SignInView: View {
                             
                             HStack {
                                 Image(systemName: "envelope.fill")
-                                    .foregroundColor(Theme.primaryMaroon)
+                                    .foregroundColor(Theme.primaryColor)
                                 TextField("Enter your email", text: $email)
                                     #if os(iOS)
                                     .keyboardType(.emailAddress)
@@ -65,7 +65,7 @@ struct SignInView: View {
                             
                             HStack {
                                 Image(systemName: "lock.fill")
-                                    .foregroundColor(Theme.primaryMaroon)
+                                    .foregroundColor(Theme.primaryColor)
                                 SecureField("Enter your password", text: $password)
                             }
                             .padding()
@@ -81,7 +81,7 @@ struct SignInView: View {
                                 showForgotPassword = true
                             }
                             .font(.subheadline)
-                            .foregroundColor(Theme.primaryMaroon)
+                            .foregroundColor(Theme.primaryColor)
                         }
                     }
                     
@@ -113,14 +113,14 @@ struct SignInView: View {
                                 .tint(.white)
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Theme.primaryMaroon)
+                                .background(Theme.primaryColor)
                                 .cornerRadius(12)
                         } else {
                             Text("Sign In")
                                 .bold()
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(email.isEmpty || password.isEmpty ? Color.gray : Theme.primaryMaroon)
+                                .background(email.isEmpty || password.isEmpty ? Color.gray : Theme.primaryColor)
                                 .foregroundColor(.white)
                                 .cornerRadius(12)
                         }
@@ -135,7 +135,7 @@ struct SignInView: View {
                     } label: {
                         Text("Resend Verification Email")
                             .font(.caption)
-                            .foregroundColor(Theme.lightMaroon)
+                            .foregroundColor(Theme.secondaryColor1)
                     }
                     .disabled(email.isEmpty || password.isEmpty || authViewModel.isLoading)
                     
@@ -147,7 +147,7 @@ struct SignInView: View {
                             SignUpView()
                         } label: {
                             Text("Sign Up")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                                 .bold()
                         }
                     }

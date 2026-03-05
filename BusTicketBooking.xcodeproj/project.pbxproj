@@ -48,6 +48,7 @@
 		B2C3D4E5F6A7B2C3D4E5F602 /* BusTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A7B2C3D4E5F601 /* BusTripViewModel.swift */; };
 		B2C3D4E5F6A7B2C3D4E5F604 /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A7B2C3D4E5F603 /* RouteViewModel.swift */; };
 		C3D4E5F6A7B8C3D4E5F6A702 /* SeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4E5F6A7B8C3D4E5F6A701 /* SeedService.swift */; };
+		D4E5F6A7B8C9D4E5F6A7B802 /* SeatSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F6A7B8C9D4E5F6A7B801 /* SeatSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		B2C3D4E5F6A7B2C3D4E5F601 /* BusTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTripViewModel.swift; sourceTree = "<group>"; };
 		B2C3D4E5F6A7B2C3D4E5F603 /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
 		C3D4E5F6A7B8C3D4E5F6A701 /* SeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedService.swift; sourceTree = "<group>"; };
+		D4E5F6A7B8C9D4E5F6A7B801 /* SeatSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				A1B2C3D4E5F6A1B2C3D4E504 /* BusListView.swift */,
 				A1B2C3D4E5F6A1B2C3D4E506 /* BusTripDetailView.swift */,
 				A1B2C3D4E5F6A1B2C3D4E508 /* SplashScreenView.swift */,
+				D4E5F6A7B8C9D4E5F6A7B801 /* SeatSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				A1B2C3D4E5F6A1B2C3D4E505 /* BusListView.swift in Sources */,
 				A1B2C3D4E5F6A1B2C3D4E507 /* BusTripDetailView.swift in Sources */,
 				A1B2C3D4E5F6A1B2C3D4E509 /* SplashScreenView.swift in Sources */,
+				D4E5F6A7B8C9D4E5F6A7B802 /* SeatSelectionView.swift in Sources */,
 				B2C3D4E5F6A7B2C3D4E5F602 /* BusTripViewModel.swift in Sources */,
 				B2C3D4E5F6A7B2C3D4E5F604 /* RouteViewModel.swift in Sources */,
 				C3D4E5F6A7B8C3D4E5F6A702 /* SeedService.swift in Sources */,

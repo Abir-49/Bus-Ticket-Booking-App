@@ -27,7 +27,7 @@ struct ProfileView: View {
                             Circle()
                                 .fill(
                                     LinearGradient(
-                                        gradient: Gradient(colors: [Theme.primaryMaroon, Theme.lightMaroon]),
+                                        gradient: Gradient(colors: [Theme.primaryColor, Theme.secondaryColor1]),
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
                                     )
@@ -153,7 +153,7 @@ struct ProfileView: View {
                                 .tint(.white)
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Theme.primaryMaroon)
+                                .background(Theme.primaryColor)
                                 .cornerRadius(12)
                         } else {
                             HStack {
@@ -163,7 +163,7 @@ struct ProfileView: View {
                             }
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Theme.primaryMaroon)
+                            .background(Theme.primaryColor)
                             .foregroundColor(.white)
                             .cornerRadius(12)
                         }
@@ -180,11 +180,11 @@ struct ProfileView: View {
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Theme.cardBackground)
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                                 .cornerRadius(12)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 12)
-                                        .stroke(Theme.primaryMaroon, lineWidth: 1)
+                                        .stroke(Theme.primaryColor, lineWidth: 1)
                                 )
                         }
                     }
@@ -194,7 +194,7 @@ struct ProfileView: View {
                         // Dark Mode
                         HStack(spacing: 14) {
                             Image(systemName: isDarkMode ? "moon.fill" : "sun.max.fill")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                                 .font(.title3)
                                 .frame(width: 30)
                             
@@ -210,7 +210,7 @@ struct ProfileView: View {
                             Spacer()
                             
                             Toggle("", isOn: $isDarkMode)
-                                .tint(Theme.primaryMaroon)
+                                .tint(Theme.primaryColor)
                                 .labelsHidden()
                         }
                         .padding(.horizontal, 16)
@@ -224,7 +224,7 @@ struct ProfileView: View {
                         } label: {
                             HStack(spacing: 14) {
                                 Image(systemName: "bell.badge.fill")
-                                    .foregroundColor(Theme.primaryMaroon)
+                                    .foregroundColor(Theme.primaryColor)
                                     .font(.title3)
                                     .frame(width: 30)
                                 
@@ -256,7 +256,7 @@ struct ProfileView: View {
                         } label: {
                             HStack(spacing: 14) {
                                 Image(systemName: "key.fill")
-                                    .foregroundColor(Theme.primaryMaroon)
+                                    .foregroundColor(Theme.primaryColor)
                                     .font(.title3)
                                     .frame(width: 30)
                                 
@@ -334,7 +334,7 @@ struct ProfileView: View {
             
             HStack {
                 Image(systemName: icon)
-                    .foregroundColor(Theme.primaryMaroon)
+                    .foregroundColor(Theme.primaryColor)
                 content()
             }
             .padding()

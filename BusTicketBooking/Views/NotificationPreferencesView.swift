@@ -24,12 +24,12 @@ struct NotificationPreferencesView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "bell.badge.fill")
                         .font(.system(size: 50))
-                        .foregroundColor(Theme.primaryMaroon)
+                        .foregroundColor(Theme.primaryColor)
                     
                     Text("Notification Preferences")
                         .font(.title2)
                         .bold()
-                        .foregroundColor(Theme.primaryMaroon)
+                        .foregroundColor(Theme.primaryColor)
                     
                     Text("Choose what notifications you want to receive")
                         .foregroundColor(.gray)
@@ -119,7 +119,7 @@ struct NotificationPreferencesView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Theme.primaryMaroon)
+                    .background(Theme.primaryColor)
                     .foregroundColor(.white)
                     .cornerRadius(12)
                 }
@@ -159,7 +159,7 @@ struct NotificationPreferencesView: View {
     private func notificationToggle(icon: String, title: String, subtitle: String, isOn: Binding<Bool>) -> some View {
         HStack(spacing: 14) {
             Image(systemName: icon)
-                .foregroundColor(Theme.primaryMaroon)
+                .foregroundColor(Theme.primaryColor)
                 .font(.title3)
                 .frame(width: 30)
             
@@ -175,7 +175,7 @@ struct NotificationPreferencesView: View {
             Spacer()
             
             Toggle("", isOn: isOn)
-                .tint(Theme.primaryMaroon)
+                .tint(Theme.primaryColor)
                 .labelsHidden()
         }
         .padding(.horizontal, 16)

@@ -34,6 +34,6 @@ struct MainTabView: View {
                     Text("Profile")
                 }
         }
-        .accentColor(Theme.primaryMaroon)
+        .accentColor(Theme.primaryColor)
     }
 }

@@ -26,8 +26,8 @@ struct BusCardView: View {
                     .bold()
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .background(Theme.primaryMaroon.opacity(0.15))
-                    .foregroundColor(Theme.primaryMaroon)
+                    .background(Theme.primaryColor.opacity(0.15))
+                    .foregroundColor(Theme.primaryColor)
                     .cornerRadius(6)
             }
 
@@ -78,7 +78,7 @@ struct BusCardView: View {
                 Text(trip.priceFormatted)
                     .font(.title3)
                     .bold()
-                    .foregroundColor(Theme.primaryMaroon)
+                    .foregroundColor(Theme.primaryColor)
             }
         }
         .padding()

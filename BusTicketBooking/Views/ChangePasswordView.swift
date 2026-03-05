@@ -27,12 +27,12 @@ struct ChangePasswordView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "key.fill")
                         .font(.system(size: 50))
-                        .foregroundColor(Theme.primaryMaroon)
+                        .foregroundColor(Theme.primaryColor)
                     
                     Text("Change Password")
                         .font(.title2)
                         .bold()
-                        .foregroundColor(Theme.primaryMaroon)
+                        .foregroundColor(Theme.primaryColor)
                 }
                 .padding(.top, 20)
                 
@@ -46,7 +46,7 @@ struct ChangePasswordView: View {
                         
                         HStack {
                             Image(systemName: "lock.fill")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                             SecureField("Enter current password", text: $currentPassword)
                         }
                         .padding()
@@ -63,7 +63,7 @@ struct ChangePasswordView: View {
                         
                         HStack {
                             Image(systemName: "lock.open.fill")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                             SecureField("Enter new password (min 6 characters)", text: $newPassword)
                         }
                         .padding()
@@ -80,7 +80,7 @@ struct ChangePasswordView: View {
                         
                         HStack {
                             Image(systemName: "lock.open.fill")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                             SecureField("Confirm new password", text: $confirmNewPassword)
                         }
                         .padding()
@@ -129,14 +129,14 @@ struct ChangePasswordView: View {
                             .tint(.white)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Theme.primaryMaroon)
+                            .background(Theme.primaryColor)
                             .cornerRadius(12)
                     } else {
                         Text("Change Password")
                             .bold()
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(isFormValid ? Theme.primaryMaroon : Color.gray)
+                            .background(isFormValid ? Theme.primaryColor : Color.gray)
                             .foregroundColor(.white)
                             .cornerRadius(12)
                     }

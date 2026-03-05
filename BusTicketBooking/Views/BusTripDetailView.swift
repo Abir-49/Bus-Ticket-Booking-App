@@ -25,8 +25,8 @@ struct BusTripDetailView: View {
                         .font(.subheadline)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 4)
-                        .background(Theme.primaryMaroon.opacity(0.15))
-                        .foregroundColor(Theme.primaryMaroon)
+                        .background(Theme.primaryColor.opacity(0.15))
+                        .foregroundColor(Theme.primaryColor)
                         .cornerRadius(8)
                 }
                 .frame(maxWidth: .infinity)
@@ -101,7 +101,7 @@ struct BusTripDetailView: View {
                     DetailRow(icon: "banknote.fill",
                               title: "Ticket Price",
                               value: trip.priceFormatted,
-                              valueColor: Theme.primaryMaroon)
+                              valueColor: Theme.primaryColor)
 
                     Divider().padding(.leading, 44)
 
@@ -113,15 +113,13 @@ struct BusTripDetailView: View {
                 .background(Theme.cardBackground)
                 .cornerRadius(16)
 
-                // Book button
-                Button(action: {
-                    // Booking action placeholder
-                }) {
-                    Text("Book Now  •  \(trip.priceFormatted)")
+                // Select Seat button
+                NavigationLink(destination: SeatSelectionView(trip: trip)) {
+                    Text("Select Seat")
                         .bold()
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(trip.availableSeats > 0 ? Theme.primaryMaroon : Color.gray)
+                        .background(trip.availableSeats > 0 ? Theme.primaryColor : Color.gray)
                         .foregroundColor(.white)
                         .cornerRadius(14)
                 }
@@ -146,7 +144,7 @@ private struct DetailRow: View {
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: icon)
-                .foregroundColor(Theme.primaryMaroon)
+                .foregroundColor(Theme.primaryColor)
                 .frame(width: 28)
             Text(title)
                 .foregroundColor(.secondary)

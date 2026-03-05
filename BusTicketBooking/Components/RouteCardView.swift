@@ -28,7 +28,7 @@ struct RouteCardView: View {
             }
             .padding(.horizontal, 15)
             .padding(.vertical, 8)
-            .background(Theme.primaryMaroon)
+            .background(Theme.primaryColor)
             .foregroundColor(.white)
             .cornerRadius(10)
         }

@@ -66,7 +66,7 @@ struct BusListView: View {
                     }
                     .padding(.horizontal, 24)
                     .padding(.vertical, 10)
-                    .background(Theme.primaryMaroon)
+                    .background(Theme.primaryColor)
                     .foregroundColor(.white)
                     .cornerRadius(10)
                 }

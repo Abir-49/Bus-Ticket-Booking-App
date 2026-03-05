@@ -21,12 +21,12 @@ struct ForgotPasswordView: View {
                     VStack(spacing: 12) {
                         Image(systemName: "key.fill")
                             .font(.system(size: 50))
-                            .foregroundColor(Theme.primaryMaroon)
+                            .foregroundColor(Theme.primaryColor)
                         
                         Text("Reset Password")
                             .font(.title)
                             .bold()
-                            .foregroundColor(Theme.primaryMaroon)
+                            .foregroundColor(Theme.primaryColor)
                         
                         Text("Enter your email address and we'll send you a link to reset your password.")
                             .foregroundColor(.gray)
@@ -43,7 +43,7 @@ struct ForgotPasswordView: View {
                         
                         HStack {
                             Image(systemName: "envelope.fill")
-                                .foregroundColor(Theme.primaryMaroon)
+                                .foregroundColor(Theme.primaryColor)
                             TextField("Enter your email", text: $email)
                                 #if os(iOS)
                                 .keyboardType(.emailAddress)
@@ -80,14 +80,14 @@ struct ForgotPasswordView: View {
                                 .tint(.white)
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Theme.primaryMaroon)
+                                .background(Theme.primaryColor)
                                 .cornerRadius(12)
                         } else {
                             Text("Send Reset Link")
                                 .bold()
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(email.isEmpty ? Color.gray : Theme.primaryMaroon)
+                                .background(email.isEmpty ? Color.gray : Theme.primaryColor)
                                 .foregroundColor(.white)
                                 .cornerRadius(12)
                         }

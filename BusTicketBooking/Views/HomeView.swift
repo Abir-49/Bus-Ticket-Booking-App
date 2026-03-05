@@ -53,7 +53,7 @@ struct HomeView: View {
                                 .bold()
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Theme.primaryMaroon)
+                                .background(Theme.primaryColor)
                                 .foregroundColor(.white)
                                 .cornerRadius(12)
                         }

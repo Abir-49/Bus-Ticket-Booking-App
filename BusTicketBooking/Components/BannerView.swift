@@ -11,7 +11,7 @@ struct BannerView: View {
     var body: some View {
         ZStack {
             LinearGradient(
-                gradient: Gradient(colors: [Theme.primaryMaroon, Theme.lightMaroon]),
+                gradient: Gradient(colors: [Theme.primaryColor, Theme.secondaryColor1]),
                 startPoint: .leading,
                 endPoint: .trailing
             )

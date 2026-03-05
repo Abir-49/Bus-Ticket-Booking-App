@@ -8,42 +8,121 @@
 import SwiftUI
 
 struct Theme {
-    static let primaryMaroon = Color(red: 128/255, green: 0/255, blue: 32/255)
-    static let lightMaroon = Color(red: 160/255, green: 20/255, blue: 60/255)
     
-    // Dark mode adaptive background
-    static var background: Color {
+    // MARK: - Primary Color (Purple)
+    static var primaryColor: Color {
         #if os(iOS)
-        return Color(UIColor { traitCollection in
-            traitCollection.userInterfaceStyle == .dark
-                ? UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
-                : UIColor(red: 245/255, green: 245/255, blue: 247/255, alpha: 1.0)
+        return Color(UIColor { trait in
+            trait.userInterfaceStyle == .dark
+            ? UIColor(red: 210/255, green: 190/255, blue: 255/255, alpha: 1.0) // Light purple
+            : UIColor(red: 95/255, green: 40/255, blue: 160/255, alpha: 1.0)   // Deep purple
         })
         #else
         return Color(NSColor(name: nil, dynamicProvider: { appearance in
             appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                ? NSColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
-                : NSColor(red: 245/255, green: 245/255, blue: 247/255, alpha: 1.0)
+            ? NSColor(red: 210/255, green: 190/255, blue: 255/255, alpha: 1.0)
+            : NSColor(red: 95/255, green: 40/255, blue: 160/255, alpha: 1.0)
         }))
         #endif
     }
-    
-    // Alias for clarity
-    static var adaptiveBackground: Color { background }
-    
-    // Card / surface background
-    static var cardBackground: Color {
+
+    // MARK: - Secondary Color (Blue)
+    static var secondaryColor1: Color {
         #if os(iOS)
-        return Color(UIColor { traitCollection in
-            traitCollection.userInterfaceStyle == .dark
-                ? UIColor.secondarySystemBackground
-                : UIColor.white
+        return Color(UIColor { trait in
+            trait.userInterfaceStyle == .dark
+            ? UIColor(red: 130/255, green: 200/255, blue: 255/255, alpha: 1.0) // Light blue
+            : UIColor(red: 0/255, green: 90/255, blue: 180/255, alpha: 1.0)    // Deep blue
         })
         #else
         return Color(NSColor(name: nil, dynamicProvider: { appearance in
             appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                ? NSColor(red: 44/255, green: 44/255, blue: 46/255, alpha: 1.0)
-                : NSColor.white
+            ? NSColor(red: 130/255, green: 200/255, blue: 255/255, alpha: 1.0)
+            : NSColor(red: 0/255, green: 90/255, blue: 180/255, alpha: 1.0)
+        }))
+        #endif
+    }
+
+    // MARK: - Success Color (Green)
+    static var secondaryColor2: Color {
+        #if os(iOS)
+        return Color(UIColor { trait in
+            trait.userInterfaceStyle == .dark
+            ? UIColor(red: 130/255, green: 230/255, blue: 160/255, alpha: 1.0) // Light green
+            : UIColor(red: 0/255, green: 120/255, blue: 70/255, alpha: 1.0)    // Deep green
+        })
+        #else
+        return Color(NSColor(name: nil, dynamicProvider: { appearance in
+            appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
+            ? NSColor(red: 130/255, green: 230/255, blue: 160/255, alpha: 1.0)
+            : NSColor(red: 0/255, green: 120/255, blue: 70/255, alpha: 1.0)
+        }))
+        #endif
+    }
+
+    // MARK: - Danger Color (Red)
+    static var dangerColor: Color {
+        #if os(iOS)
+        return Color(UIColor { trait in
+            trait.userInterfaceStyle == .dark
+            ? UIColor(red: 255/255, green: 150/255, blue: 150/255, alpha: 1.0)
+            : UIColor(red: 180/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        })
+        #else
+        return Color(NSColor(name: nil, dynamicProvider: { appearance in
+            appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
+            ? NSColor(red: 255/255, green: 150/255, blue: 150/255, alpha: 1.0)
+            : NSColor(red: 180/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        }))
+        #endif
+    }
+
+    // MARK: - Legacy aliases (for compatibility)
+
+    @available(*, deprecated, message: "Use primaryColor instead")
+    static var primaryMaroon: Color { primaryColor }
+
+    @available(*, deprecated, message: "Use secondaryColor1 instead")
+    static var lightMaroon: Color { secondaryColor1 }
+
+    @available(*, deprecated, message: "Use secondaryColor2 instead")
+    static var accent: Color { secondaryColor2 }
+
+    // MARK: - Background
+
+    static var background: Color {
+        #if os(iOS)
+        return Color(UIColor { trait in
+            trait.userInterfaceStyle == .dark
+            ? UIColor(red: 10/255, green: 12/255, blue: 30/255, alpha: 1.0)
+            : UIColor(red: 250/255, green: 249/255, blue: 252/255, alpha: 1.0)
+        })
+        #else
+        return Color(NSColor(name: nil, dynamicProvider: { appearance in
+            appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
+            ? NSColor(red: 10/255, green: 12/255, blue: 30/255, alpha: 1.0)
+            : NSColor(red: 250/255, green: 249/255, blue: 252/255, alpha: 1.0)
+        }))
+        #endif
+    }
+
+    // Alias
+    static var adaptiveBackground: Color { background }
+
+    // MARK: - Card Background
+
+    static var cardBackground: Color {
+        #if os(iOS)
+        return Color(UIColor { trait in
+            trait.userInterfaceStyle == .dark
+            ? UIColor(red: 20/255, green: 24/255, blue: 42/255, alpha: 1.0)
+            : UIColor.white
+        })
+        #else
+        return Color(NSColor(name: nil, dynamicProvider: { appearance in
+            appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
+            ? NSColor(red: 20/255, green: 24/255, blue: 42/255, alpha: 1.0)
+            : NSColor.white
         }))
         #endif
     }

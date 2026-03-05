@@ -21,9 +21,9 @@ struct SplashScreenView: View {
             // Background gradient
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Theme.primaryMaroon,
-                    Theme.lightMaroon,
-                    Theme.primaryMaroon.opacity(0.85)
+                    Theme.primaryColor,
+                    Theme.secondaryColor1,
+                    Theme.primaryColor.opacity(0.85)
                 ]),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
