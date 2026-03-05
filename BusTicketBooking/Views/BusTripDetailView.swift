@@ -1,0 +1,161 @@
+//
+//  BusTripDetailView.swift
+//  BusTicketBooking
+//
+//  Created by macos on 4/3/26.
+//
+
+import SwiftUI
+
+struct BusTripDetailView: View {
+
+    let trip: BusTrip
+
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 20) {
+
+                // Bus header
+                VStack(spacing: 6) {
+                    Text(trip.busName)
+                        .font(.title2)
+                        .bold()
+
+                    Text(trip.busType)
+                        .font(.subheadline)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 4)
+                        .background(Theme.primaryMaroon.opacity(0.15))
+                        .foregroundColor(Theme.primaryMaroon)
+                        .cornerRadius(8)
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Theme.cardBackground)
+                .cornerRadius(16)
+
+                // Journey details card
+                VStack(spacing: 16) {
+                    Text("Journey Details")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    HStack(alignment: .top) {
+                        // Departure
+                        VStack(spacing: 4) {
+                            Image(systemName: "circle.fill")
+                                .font(.caption2)
+                                .foregroundColor(.green)
+                            Text(trip.departureTime)
+                                .font(.headline)
+                            Text(trip.source)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+
+                        Spacer()
+
+                        // Duration
+                        VStack(spacing: 4) {
+                            Text(trip.duration)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            Rectangle()
+                                .fill(Color.gray.opacity(0.3))
+                                .frame(height: 1)
+                                .frame(maxWidth: 80)
+                            Image(systemName: "bus.fill")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.top, 6)
+
+                        Spacer()
+
+                        // Arrival
+                        VStack(spacing: 4) {
+                            Image(systemName: "circle.fill")
+                                .font(.caption2)
+                                .foregroundColor(.red)
+                            Text(trip.arrivalTime)
+                                .font(.headline)
+                            Text(trip.destination)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                }
+                .padding()
+                .background(Theme.cardBackground)
+                .cornerRadius(16)
+
+                // Info rows
+                VStack(spacing: 0) {
+                    DetailRow(icon: "person.2.fill",
+                              title: "Available Seats",
+                              value: "\(trip.availableSeats)",
+                              valueColor: trip.availableSeats <= 5 ? .red : .green)
+
+                    Divider().padding(.leading, 44)
+
+                    DetailRow(icon: "banknote.fill",
+                              title: "Ticket Price",
+                              value: trip.priceFormatted,
+                              valueColor: Theme.primaryMaroon)
+
+                    Divider().padding(.leading, 44)
+
+                    DetailRow(icon: "bus.fill",
+                              title: "Bus Type",
+                              value: trip.busType,
+                              valueColor: .primary)
+                }
+                .background(Theme.cardBackground)
+                .cornerRadius(16)
+
+                // Book button
+                Button(action: {
+                    // Booking action placeholder
+                }) {
+                    Text("Book Now  •  \(trip.priceFormatted)")
+                        .bold()
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(trip.availableSeats > 0 ? Theme.primaryMaroon : Color.gray)
+                        .foregroundColor(.white)
+                        .cornerRadius(14)
+                }
+                .disabled(trip.availableSeats == 0)
+            }
+            .padding()
+        }
+        .background(Theme.background)
+        .navigationTitle("Trip Details")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+// MARK: - Detail Row Helper
+
+private struct DetailRow: View {
+    let icon: String
+    let title: String
+    let value: String
+    var valueColor: Color = .primary
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: icon)
+                .foregroundColor(Theme.primaryMaroon)
+                .frame(width: 28)
+            Text(title)
+                .foregroundColor(.secondary)
+            Spacer()
+            Text(value)
+                .bold()
+                .foregroundColor(valueColor)
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 12)
+    }
+}

@@ -12,12 +12,9 @@ struct HomeView: View {
     @State private var fromCity = ""
     @State private var toCity = ""
     @State private var selectedDate = Date()
+    @State private var navigateToResults = false
 
-    let routes = [
-        Route(from: "Khulna", to: "Dhaka", price: "700 Tk"),
-        Route(from: "Khulna", to: "Sylhet", price: "1200 Tk"),
-        Route(from: "Dhaka", to: "Chattagram", price: "800 Tk")
-    ]
+    @StateObject private var routeViewModel = RouteViewModel()
 
     var body: some View {
         NavigationStack {
@@ -26,26 +23,32 @@ struct HomeView: View {
 
                     BannerView()
 
+                    // MARK: Search Card
                     VStack(spacing: 15) {
 
-                        TextField("From", text: $fromCity)
+                        TextField("From (e.g. Dhaka)", text: $fromCity)
                             .padding()
                             .background(Theme.cardBackground)
                             .cornerRadius(12)
+                            .autocorrectionDisabled()
 
-                        TextField("To", text: $toCity)
+                        TextField("To (e.g. Chattagram)", text: $toCity)
                             .padding()
                             .background(Theme.cardBackground)
                             .cornerRadius(12)
+                            .autocorrectionDisabled()
 
-                        DatePicker("Select Date",
+                        DatePicker("Travel Date",
                                    selection: $selectedDate,
+                                   in: Date()...,
                                    displayedComponents: .date)
                             .padding()
                             .background(Theme.cardBackground)
                             .cornerRadius(12)
 
-                        Button(action: {}) {
+                        Button(action: {
+                            navigateToResults = true
+                        }) {
                             Text("Search Buses")
                                 .bold()
                                 .frame(maxWidth: .infinity)
@@ -54,6 +57,13 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                                 .cornerRadius(12)
                         }
+                        .navigationDestination(isPresented: $navigateToResults) {
+                            BusListView(
+                                fromCity: fromCity,
+                                toCity: toCity,
+                                travelDate: selectedDate
+                            )
+                        }
 
                     }
                     .padding()
@@ -61,21 +71,50 @@ struct HomeView: View {
                     .cornerRadius(20)
                     .shadow(color: .gray.opacity(0.2), radius: 10)
 
-                    VStack(alignment: .leading) {
+                    // MARK: Popular Routes
+                    VStack(alignment: .leading, spacing: 10) {
                         Text("Popular Routes")
                             .font(.title3)
                             .bold()
-                            .padding(.bottom, 5)
+                            .padding(.bottom, 2)
 
-                        ForEach(routes) { route in
-                            RouteCardView(route: route)
+                        if routeViewModel.isLoading {
+                            HStack {
+                                Spacer()
+                                ProgressView()
+                                Spacer()
+                            }
+                            .padding()
+                        } else if let err = routeViewModel.errorMessage {
+                            Text(err)
+                                .foregroundColor(.red)
+                                .font(.caption)
+                                .padding(.horizontal, 4)
+                        } else if routeViewModel.popularRoutes.isEmpty {
+                            Text("No popular routes available.")
+                                .foregroundColor(.gray)
+                                .font(.subheadline)
+                                .padding(.horizontal, 4)
+                        } else {
+                            ForEach(routeViewModel.popularRoutes) { route in
+                                RouteCardView(route: route) {
+                                    fromCity = route.from
+                                    toCity = route.to
+                                    navigateToResults = true
+                                }
+                            }
                         }
                     }
                 }
                 .padding()
             }
             .background(Theme.background)
-            .navigationTitle("Bus Booking") 
+            .navigationTitle("Bus Booking")
+            .onAppear {
+                if routeViewModel.popularRoutes.isEmpty {
+                    routeViewModel.fetchPopularRoutes()
+                }
+            }
         }
     }
 }

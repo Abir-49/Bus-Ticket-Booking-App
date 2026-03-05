@@ -8,8 +8,26 @@
 import Foundation
 
 struct Route: Identifiable {
-    let id = UUID()
+    let id: String
     let from: String
     let to: String
-    let price: String
+    let minPrice: Int
+
+    var displayPrice: String {
+        "From ৳\(minPrice)"
+    }
+
+    // MARK: - Firestore Initializer
+    init?(documentID: String, data: [String: Any]) {
+        guard
+            let from = data["from"] as? String,
+            let to = data["to"] as? String,
+            let minPrice = data["minPrice"] as? Int
+        else { return nil }
+
+        self.id = documentID
+        self.from = from
+        self.to = to
+        self.minPrice = minPrice
+    }
 }

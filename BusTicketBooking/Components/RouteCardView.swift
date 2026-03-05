@@ -10,19 +10,21 @@ import SwiftUI
 struct RouteCardView: View {
 
     let route: Route
+    var onBook: (() -> Void)? = nil
 
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 5) {
                 Text("\(route.from) → \(route.to)")
                     .bold()
-                Text("Starting at \(route.price)")
+                Text(route.displayPrice)
                     .foregroundColor(.gray)
             }
 
             Spacer()
 
             Button("Book") {
+                onBook?()
             }
             .padding(.horizontal, 15)
             .padding(.vertical, 8)

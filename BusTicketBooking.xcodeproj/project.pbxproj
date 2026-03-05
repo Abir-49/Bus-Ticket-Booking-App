@@ -40,6 +40,14 @@
 		2295F7012F57DFF0000425DF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2295F7002F57DFF0000425DF /* FirebaseFirestoreSwift */; };
 		2295F7032F57DFF0000425DF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2295F7022F57DFF0000425DF /* FirebaseStorage */; };
 		2295F7052F57E036000425DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2295F7042F57E036000425DF /* GoogleService-Info.plist */; };
+		A1B2C3D4E5F6A1B2C3D4E501 /* BusTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A1B2C3D4E500 /* BusTrip.swift */; };
+		A1B2C3D4E5F6A1B2C3D4E503 /* BusCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A1B2C3D4E502 /* BusCardView.swift */; };
+		A1B2C3D4E5F6A1B2C3D4E505 /* BusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A1B2C3D4E504 /* BusListView.swift */; };
+		A1B2C3D4E5F6A1B2C3D4E507 /* BusTripDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A1B2C3D4E506 /* BusTripDetailView.swift */; };
+		A1B2C3D4E5F6A1B2C3D4E509 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A1B2C3D4E508 /* SplashScreenView.swift */; };
+		B2C3D4E5F6A7B2C3D4E5F602 /* BusTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A7B2C3D4E5F601 /* BusTripViewModel.swift */; };
+		B2C3D4E5F6A7B2C3D4E5F604 /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A7B2C3D4E5F603 /* RouteViewModel.swift */; };
+		C3D4E5F6A7B8C3D4E5F6A702 /* SeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4E5F6A7B8C3D4E5F6A701 /* SeedService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +97,14 @@
 		223C6D242F50510000BCC29D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		223C6D2F2F50516000BCC29D /* NotificationPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferencesView.swift; sourceTree = "<group>"; };
 		2295F7042F57E036000425DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A1B2C3D4E500 /* BusTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTrip.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A1B2C3D4E502 /* BusCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCardView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A1B2C3D4E504 /* BusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A1B2C3D4E506 /* BusTripDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTripDetailView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A1B2C3D4E508 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		B2C3D4E5F6A7B2C3D4E5F601 /* BusTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTripViewModel.swift; sourceTree = "<group>"; };
+		B2C3D4E5F6A7B2C3D4E5F603 /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
+		C3D4E5F6A7B8C3D4E5F6A701 /* SeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +216,9 @@
 				223C6D222F5050F000BCC29D /* ChangePasswordView.swift */,
 				223C6D242F50510000BCC29D /* ProfileView.swift */,
 				223C6D2F2F50516000BCC29D /* NotificationPreferencesView.swift */,
+				A1B2C3D4E5F6A1B2C3D4E504 /* BusListView.swift */,
+				A1B2C3D4E5F6A1B2C3D4E506 /* BusTripDetailView.swift */,
+				A1B2C3D4E5F6A1B2C3D4E508 /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,6 +229,7 @@
 				223C6D0F2F5042AF00BCC29D /* BannerView.swift */,
 				223C6D112F5042C700BCC29D /* RouteCardView.swift */,
 				223C6D132F5042D400BCC29D /* Theme.swift */,
+				A1B2C3D4E5F6A1B2C3D4E502 /* BusCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -219,6 +239,7 @@
 			children = (
 				223C6D162F5042F000BCC29D /* Route.swift */,
 				223C6D1A2F5050B000BCC29D /* UserModel.swift */,
+				A1B2C3D4E5F6A1B2C3D4E500 /* BusTrip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,6 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				223C6D182F5050A000BCC29D /* AuthViewModel.swift */,
+				B2C3D4E5F6A7B2C3D4E5F601 /* BusTripViewModel.swift */,
+				B2C3D4E5F6A7B2C3D4E5F603 /* RouteViewModel.swift */,
+				C3D4E5F6A7B8C3D4E5F6A701 /* SeedService.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -394,6 +418,14 @@
 				223C6D232F5050F000BCC29D /* ChangePasswordView.swift in Sources */,
 				223C6D252F50510000BCC29D /* ProfileView.swift in Sources */,
 				223C6D2E2F50516000BCC29D /* NotificationPreferencesView.swift in Sources */,
+				A1B2C3D4E5F6A1B2C3D4E501 /* BusTrip.swift in Sources */,
+				A1B2C3D4E5F6A1B2C3D4E503 /* BusCardView.swift in Sources */,
+				A1B2C3D4E5F6A1B2C3D4E505 /* BusListView.swift in Sources */,
+				A1B2C3D4E5F6A1B2C3D4E507 /* BusTripDetailView.swift in Sources */,
+				A1B2C3D4E5F6A1B2C3D4E509 /* SplashScreenView.swift in Sources */,
+				B2C3D4E5F6A7B2C3D4E5F602 /* BusTripViewModel.swift in Sources */,
+				B2C3D4E5F6A7B2C3D4E5F604 /* RouteViewModel.swift in Sources */,
+				C3D4E5F6A7B8C3D4E5F6A702 /* SeedService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
