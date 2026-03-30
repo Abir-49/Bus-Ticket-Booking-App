@@ -29,7 +29,7 @@ class SeedService: ObservableObject {
     }
 
     private let db = Firestore.firestore()
-    private let seededKey = "firestoreSeeded_v1"
+    private let seededKey = "firestoreSeeded_v2"
 
     // MARK: - Public API
 
@@ -50,7 +50,13 @@ class SeedService: ObservableObject {
         status = .running
         do {
             try await seedCollection("popularRoutes", documents: popularRoutes)
-            try await seedCollection("busTrips",      documents: busTrips)
+            // Add seatMatrix to busTrips before seeding
+            let busTripsWithSeats = busTrips.map { trip -> [String: Any] in
+                var updatedTrip = trip
+                updatedTrip["seatMatrix"] = generateSeatMatrix()
+                return updatedTrip
+            }
+            try await seedCollection("busTrips", documents: busTripsWithSeats)
             UserDefaults.standard.set(true, forKey: seededKey)
             status = .done(message: "Seeded \(popularRoutes.count) routes and \(busTrips.count) bus trips ✓")
         } catch {
@@ -71,6 +77,21 @@ class SeedService: ObservableObject {
             }
             try await batch.commit()
         }
+    }
+    
+    /// Generate a seat matrix with randomly booked front seats (A and B rows mostly)
+    private func generateSeatMatrix() -> String {
+        var matrix = Array(repeating: "0", count: 40) // 40 seats: 10 rows x 4 columns
+        
+        // Randomly book 3-7 front seats (A1-A4, B1-B4)
+        let frontSeatCount = Int.random(in: 3...7)
+        let frontSeats = Array(0..<8) // Indices for rows A and B (seats 0-7)
+        
+        for index in frontSeats.shuffled().prefix(frontSeatCount) {
+            matrix[index] = "1"
+        }
+        
+        return String(matrix)
     }
 
     // MARK: - popularRoutes (55 documents)

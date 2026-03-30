@@ -17,6 +17,7 @@ struct BusTrip: Identifiable {
     let availableSeats: Int
     let ticketPrice: Int
     let busType: String
+    var seatMatrix: String // 40-character binary string: 0 = available, 1 = booked
 
     // MARK: - Firestore Initializer
     init?(documentID: String, data: [String: Any]) {
@@ -40,6 +41,7 @@ struct BusTrip: Identifiable {
         self.availableSeats = availableSeats
         self.ticketPrice = ticketPrice
         self.busType = busType
+        self.seatMatrix = data["seatMatrix"] as? String ?? String(repeating: "0", count: 40)
     }
 
     // MARK: - Computed Properties
